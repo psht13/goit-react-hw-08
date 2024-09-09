@@ -1,0 +1,24 @@
+.form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 300px;
+  padding: 12px;
+  border: 2px solid black;
+  border-radius: 8px;
+  gap: 8px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 250px;
+}
+
+.errorMessage {
+  color: rgb(177, 29, 29);
+  background-color: rgba(177, 29, 29, 0.2);
+}
