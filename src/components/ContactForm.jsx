@@ -25,13 +25,14 @@ const ContactForm = () => {
   };
 
   return (
-    <div>
+    <>
       <Formik
         initialValues={{ name: '', number: '' }}
         onSubmit={handleSubmit}
         validationSchema={ValidationSchema}
       >
         <Form className="form">
+          <div></div>
           <label className="field">
             <span>Name</span>
             <Field className="input" type="text" name="name" />
@@ -51,10 +52,12 @@ const ContactForm = () => {
             />
           </label>
 
-          <Button type="submit">Add contact</Button>
+          <Button type="submit" custom={'w-full'}>
+            Add contact
+          </Button>
         </Form>
       </Formik>
-    </div>
+    </>
   );
 };
 

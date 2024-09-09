@@ -5,7 +5,6 @@ import Error from '../components/Error';
 
 const RegistrationPage = () => {
   const error = useSelector(selectAuthError);
-  console.log(error);
 
   return (
     <div className="w-full h-full flex flex-col justify-center items-center pt-8">

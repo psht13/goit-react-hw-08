@@ -13,7 +13,7 @@ const Contact = ({ name, number, id }) => {
   };
 
   return (
-    <div className="flex items-center justify-between w-full max-w-[350px] p-6 rounded-[24px] bg-orange-300 ">
+    <div className="flex items-center justify-between w-full max-w-[400px] p-6 rounded-[24px] bg-orange-300 ">
       <div className="flex flex-col justify-center gap-1 font-semibold text-gray-900 max-w-[60%] ">
         <p>
           <FaUser className="w-4 h-4" /> <span>{name}</span>

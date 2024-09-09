@@ -61,7 +61,9 @@ const LoginForm = () => {
           />
         </label>
 
-        <Button type="submit">Log In</Button>
+        <Button type="submit" custom={'w-full'}>
+          Log In
+        </Button>
       </Form>
     </Formik>
   );

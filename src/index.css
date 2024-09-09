@@ -4,7 +4,7 @@
 
 @layer components {
   .form {
-    @apply flex items-center flex-col justify-center w-[400px] p-3 bg-orange-300 rounded-[24px] gap-5;
+    @apply flex items-center flex-col justify-center w-full max-w-[400px] p-3 bg-orange-300 rounded-[24px] gap-5;
   }
 
   .field {

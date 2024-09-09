@@ -1,13 +1,18 @@
 import Navigation from './Navigation';
 import AuthNav from './AuthNav';
+import UserMenu from './UserMenu';
+import { useSelector } from 'react-redux';
+import { selectAuthIsLoggedIn } from '../redux/auth/selectors';
 
 const AppBar = () => {
+  const isLoggedIn = useSelector(selectAuthIsLoggedIn);
+
   return (
-    <div className="w-full border-b-orange-300 border bg-orange-200 h-20 flex items-center justify-center">
-      <nav className="w-[80%] flex gap-12 justify-between items-center">
+    <div className="w-full border-b-orange-300 border bg-orange-200 py-5 flex items-center justify-center">
+      <nav className="w-[80%] flex justify-between items-center max-sm:">
         <Navigation />
 
-        <AuthNav />
+        {!isLoggedIn ? <AuthNav /> : <UserMenu />}
       </nav>
     </div>
   );

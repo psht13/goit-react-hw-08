@@ -80,7 +80,9 @@ const RegistrationForm = () => {
           />
         </label>
 
-        <Button type="submit">Sign Up</Button>
+        <Button type="submit" custom={'w-full'}>
+          Sign Up
+        </Button>
       </Form>
     </Formik>
   );
