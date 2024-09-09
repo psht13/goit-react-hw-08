@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .form {
+    @apply flex items-center flex-col justify-center w-full max-w-[300px] p-3 border-2 border-black rounded-[8px] gap-2;
+  }
+
+  .field {
+    @apply flex flex-col w-full max-w-[250px] px-4 py-2 border border-orange-400 
+  ;}
+
+  .errorMessage {
+    @apply text-red-600 bg-red-900 bg-opacity-20
+  ;}
+}
+
 body {
   font-family: sans-serif;
 }

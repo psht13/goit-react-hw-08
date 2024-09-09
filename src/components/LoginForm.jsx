@@ -1,6 +1,6 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
-import css from './styles/Form.module.css';
+
 import Button from './Button';
 import { useDispatch } from 'react-redux';
 import { login } from '../redux/auth/operations';
@@ -30,7 +30,7 @@ const LoginForm = () => {
       onSubmit={handleSubmit}
     >
       <Form>
-        <label className={css.field}>
+        <label className={'field'}>
           <span>Email</span>
           <Field
             type="text"
@@ -39,16 +39,16 @@ const LoginForm = () => {
           />
 
           <ErrorMessage
-            className={css.errorMessage}
+            className={'errorMessage'}
             name="email"
             component="span"
           />
         </label>
-        <label className={css.field}>
+        <label className={'field'}>
           <span>Password</span>
           <Field type="password" name="password" placeholder="Enter password" />
           <ErrorMessage
-            className={css.errorMessage}
+            className={'errorMessage'}
             name="password"
             component="span"
           />

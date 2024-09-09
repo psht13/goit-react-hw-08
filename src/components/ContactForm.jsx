@@ -1,5 +1,3 @@
-import css from './styles/Form.module.css';
-
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
@@ -33,21 +31,21 @@ const ContactForm = () => {
         onSubmit={handleSubmit}
         validationSchema={ValidationSchema}
       >
-        <Form className={css.form}>
-          <label className={css.field}>
+        <Form className="form">
+          <label className="field">
             <span>Name</span>
             <Field type="text" name="name" />
             <ErrorMessage
-              className={css.errorMessage}
+              className="errorMessage"
               name="name"
               component="span"
             />
           </label>
-          <label className={css.field}>
+          <label className="field">
             <span>Number</span>
             <Field type="text" name="number" />
             <ErrorMessage
-              className={css.errorMessage}
+              className="errorMessage"
               name="number"
               component="span"
             />
