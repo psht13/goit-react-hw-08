@@ -5,9 +5,13 @@ export const instance = axios.create({
   baseURL: 'https://connections-api.goit.global',
 });
 
-// const setAuthHeaders = (token) => {
-//   instance.defaults.headers.common.Authorization = `Bearer ${token}`;
-// };
+const setAuthHeaders = (token) => {
+  instance.defaults.headers.common.Authorization = `Bearer ${token}`;
+};
+
+const clearAuthHeader = () => {
+  axios.defaults.headers.common.Authorization = '';
+};
 
 export const login = createAsyncThunk(
   'auth/login',
@@ -15,7 +19,7 @@ export const login = createAsyncThunk(
     try {
       const { data } = await instance.post('/users/login', credentials);
 
-      console.log({ data });
+      setAuthHeaders(data.token);
 
       return data;
     } catch (error) {
@@ -30,7 +34,7 @@ export const register = createAsyncThunk(
     try {
       const { data } = await instance.post('/users/signup', credentials);
 
-      console.log({ data });
+      setAuthHeaders(data.token);
 
       return data;
     } catch (error) {
@@ -41,10 +45,31 @@ export const register = createAsyncThunk(
 
 export const logout = createAsyncThunk('auth/logout', async (_, thunkApi) => {
   try {
-    const { data } = await instance.post('/users/logout');
+    await instance.post('/users/logout');
 
-    return data;
+    clearAuthHeader();
   } catch (error) {
     return thunkApi.rejectWithValue(error.message);
   }
 });
+
+export const refreshUser = createAsyncThunk(
+  'auth/refresh',
+  async (_, thunkApi) => {
+    try {
+      const state = thunkApi.getState();
+      const token = state.auth.token;
+
+      if (token === null)
+        return thunkApi.rejectWithValue('Unable to fetch user');
+
+      setAuthHeaders(token);
+
+      const { data } = await instance.get('/users/current');
+
+      return data;
+    } catch (error) {
+      thunkApi.rejectWithValue(error.message);
+    }
+  }
+);

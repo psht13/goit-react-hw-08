@@ -20,9 +20,10 @@ const ValidationSchema = Yup.object().shape({
 const RegistrationForm = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = (values) => {
-    console.log(values);
+  const handleSubmit = (values, actions) => {
     dispatch(register(values));
+
+    actions.resetForm();
   };
   return (
     <Formik
@@ -34,10 +35,15 @@ const RegistrationForm = () => {
       }}
       onSubmit={handleSubmit}
     >
-      <Form>
+      <Form className="form">
         <label className={'field'}>
           <span>Name</span>
-          <Field type="text" name="name" placeholder="Pavlo Yurchenko" />
+          <Field
+            className="input"
+            type="text"
+            name="name"
+            placeholder="Pavlo Yurchenko"
+          />
           <ErrorMessage
             className={'errorMessage'}
             name="name"
@@ -47,6 +53,7 @@ const RegistrationForm = () => {
         <label className={'field'}>
           <span>Email</span>
           <Field
+            className={'input'}
             type="text"
             name="email"
             placeholder="pavlo.yurchenko@gmail.com"
@@ -60,7 +67,12 @@ const RegistrationForm = () => {
         </label>
         <label className={'field'}>
           <span>Password</span>
-          <Field type="password" name="password" placeholder="Enter password" />
+          <Field
+            className="input"
+            type="password"
+            name="password"
+            placeholder="Enter password"
+          />
           <ErrorMessage
             className={'errorMessage'}
             name="password"

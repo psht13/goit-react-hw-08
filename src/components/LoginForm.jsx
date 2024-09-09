@@ -16,9 +16,10 @@ const ValidationSchema = Yup.object().shape({
 const LoginForm = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = (values) => {
-    console.log(values);
+  const handleSubmit = (values, actions) => {
     dispatch(login(values));
+
+    actions.resetForm();
   };
   return (
     <Formik
@@ -29,10 +30,11 @@ const LoginForm = () => {
       }}
       onSubmit={handleSubmit}
     >
-      <Form>
+      <Form className="form">
         <label className={'field'}>
           <span>Email</span>
           <Field
+            className={'input'}
             type="text"
             name="email"
             placeholder="pavlo.yurchenko@gmail.com"
@@ -46,7 +48,12 @@ const LoginForm = () => {
         </label>
         <label className={'field'}>
           <span>Password</span>
-          <Field type="password" name="password" placeholder="Enter password" />
+          <Field
+            className="input"
+            type="password"
+            name="password"
+            placeholder="Enter password"
+          />
           <ErrorMessage
             className={'errorMessage'}
             name="password"

@@ -4,19 +4,24 @@
 
 @layer components {
   .form {
-    @apply flex items-center flex-col justify-center w-full max-w-[300px] p-3 border-2 border-black rounded-[8px] gap-2;
+    @apply flex items-center flex-col justify-center w-[400px] p-3 bg-orange-300 rounded-[24px] gap-5;
   }
 
   .field {
-    @apply flex flex-col w-full max-w-[250px] px-4 py-2 border border-orange-400 
-  ;}
+    @apply flex flex-col w-full max-w-[400px] px-4 py-2  rounded-2xl text-gray-800 font-semibold bg-orange-200 text-center gap-2;
+  }
+
+  .input {
+    @apply w-full py-2 px-8 rounded-full bg-orange-100 outline-none;
+  }
 
   .errorMessage {
-    @apply text-red-600 bg-red-900 bg-opacity-20
-  ;}
+    @apply text-red-600;
+  }
 }
 
 body {
+  background-color: #ffe2abd7;
   font-family: sans-serif;
 }
 

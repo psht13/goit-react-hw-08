@@ -1,7 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
-import { addContact } from '../redux/contactsOps';
+import { addContact } from '../redux/contacts/operations';
 import Button from './Button';
 
 const ValidationSchema = Yup.object().shape({
@@ -34,7 +34,7 @@ const ContactForm = () => {
         <Form className="form">
           <label className="field">
             <span>Name</span>
-            <Field type="text" name="name" />
+            <Field className="input" type="text" name="name" />
             <ErrorMessage
               className="errorMessage"
               name="name"
@@ -43,7 +43,7 @@ const ContactForm = () => {
           </label>
           <label className="field">
             <span>Number</span>
-            <Field type="text" name="number" />
+            <Field className="input" type="text" name="number" />
             <ErrorMessage
               className="errorMessage"
               name="number"
