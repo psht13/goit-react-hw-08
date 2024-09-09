@@ -1,9 +1,10 @@
-import css from './ContactForm.module.css';
+import css from './styles/Form.module.css';
 
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
-import { addContact } from '../../redux/contactsOps';
+import { addContact } from '../redux/contactsOps';
+import Button from './Button';
 
 const ValidationSchema = Yup.object().shape({
   name: Yup.string()
@@ -52,7 +53,7 @@ const ContactForm = () => {
             />
           </label>
 
-          <button type="submit">Add contact</button>
+          <Button type="submit">Add contact</Button>
         </Form>
       </Formik>
     </div>

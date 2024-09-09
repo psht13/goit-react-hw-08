@@ -1,12 +1,10 @@
-import css from './ContactList.module.css';
-
-import Contact from '../Contact/Contact';
+import Contact from './Contact';
 import { useSelector } from 'react-redux';
 import {
   selectError,
   selectFilteredContacts,
   selectLoading,
-} from '../../redux/contactsSlice';
+} from '../redux/contactsSlice';
 
 const ContactList = () => {
   const loading = useSelector(selectLoading);
@@ -14,7 +12,7 @@ const ContactList = () => {
   const visibleContacts = useSelector(selectFilteredContacts);
 
   return (
-    <div className={css.contactList}>
+    <div className="flex flex-wrap gap-4">
       {loading && <div>Loading...</div>}
       {error && <div>Error fetching contacts</div>}
       {visibleContacts.map((contact) => (

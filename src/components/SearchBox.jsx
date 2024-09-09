@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import css from './SearchBox.module.css';
 
-import { changeFilter, selectFilter } from '../../redux/filtersSlice';
+import { changeFilter, selectFilter } from '../redux/filtersSlice';
 
 const SearchBox = () => {
   const dispatch = useDispatch();
@@ -14,7 +13,7 @@ const SearchBox = () => {
 
   return (
     <div>
-      <label className={css.searchInput}>
+      <label className="flex flex-col w-full max-w-[250px] gap-2">
         <span>Find contacts by name</span>
         <input
           type="text"
